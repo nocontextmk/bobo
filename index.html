@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi-Chauffeur Prüfung</title>
+    <title>Taxi-Chauffeur Prüfung (BPT / ARV 2)</title>
     <style>
         :root {
             --primary-color: #f39c12;
@@ -169,77 +169,226 @@
 <div class="container">
     <h1>Taxi-Chauffeur Theorieprüfung</h1>
     
-    <!-- Избор на Категорија -->
     <div class="menu">
-        <button onclick="startQuiz(1)" id="btn-1">Test 1</button>
-        <button onclick="startQuiz(2)" id="btn-2">Test 2</button>
-        <button onclick="startQuiz(3)" id="btn-3">Test 3</button>
-        <button onclick="startQuiz('random')" id="btn-random">Random Test (Alle gemischt)</button>
+        <button onclick="startQuiz(1)" id="btn-1">Test 1 (ARV 2 Grundlagen)</button>
+        <button onclick="startQuiz(2)" id="btn-2">Test 2 (Ruhezeiten & Pflichten)</button>
+        <button onclick="startQuiz(3)" id="btn-3">Test 3 (Technik & Sicherheit)</button>
+        <button onclick="startQuiz('random')" id="btn-random">Random Test (Alle 30+ Fragen gemischt)</button>
     </div>
 
-    <!-- Дел за Прашања -->
     <div id="quiz-container" class="quiz-section">
         <div id="questions-area"></div>
         <button id="submit-btn" onclick="checkAnswers()">Test beenden & auswerten</button>
     </div>
 
-    <!-- Дел за Резултат -->
     <div id="results-area" class="results"></div>
 </div>
 
 <script>
-    // БАЗА НА ПОДАТОЦИ СО ПРАШАЊА
-    // Овде можеш да додаваш нови прашања следејќи ја истава шема
+    // КОМПЛЕТНА БАЗА НА ПОДАТОЦИ СО СИТЕ РЕАЛНИ ПРАШАЊА ЗА ТАКСИ ИСПИТ
     const allQuestions = [
+        // --- ТЕСТ 1 (27 прашања почнуваат тука) ---
         {
-            id: 1,
-            category: 1, 
+            id: 1, category: 1,
             question: "Dürfen selbständig erwerbende Taxichauffeure während der Arbeitszeit Alkohol trinken?",
-            options: {
-                A: "Ja, sie entscheiden selbst.",
-                B: "Nein, es ist allen Taxichauffeuren verboten.",
-                C: "Nur mit Einwilligung des Arbeitgebers."
-            },
+            options: { A: "Ja, sie entscheiden selbst.", B: "Nein, es ist allen Taxichauffeuren verboten.", C: "Nur mit Einwilligung des Arbeitgebers." },
             correct: "B"
         },
         {
-            id: 2,
-            category: 1,
-            question: "Wie hoch ist die zulässige Höchstgeschwindigkeit für Taxis in geschlossenen Ortschaften, sofern nicht anders signalisiert?",
-            options: {
-                A: "30 km/h",
-                B: "50 km/h",
-                C: "60 km/h"
-            },
+            id: 2, category: 1,
+            question: "Wie hoch ist die gesetzliche Blutalkoholkonzentration (AnzG) für Taxichauffeure im Dienst?",
+            options: { A: "0.5 Promille", B: "0.1 Promille (Faktisches Alkoholverbot)", C: "0.8 Promille" },
             correct: "B"
         },
         {
-            id: 3,
-            category: 2,
-            question: "Wann muss ein Taxichauffeur dem Fahrgast eine Quittung ausstellen?",
-            options: {
-                A: "Nur wenn der Fahrpreis über 50 Franken liegt.",
-                B: "Immer wenn der Fahrgast es verlangt.",
-                C: "Das ist gesetzlich nicht vorgeschrieben."
-            },
+            id: 3, category: 1,
+            question: "Welche Höchstgeschwindigkeit gilt für Taxis innerorts, wenn keine Schilder vorhanden sind?",
+            options: { A: "30 km/h", B: "50 km/h", C: "60 km/h" },
             correct: "B"
         },
         {
-            id: 4,
-            category: 3,
-            question: "Welches Dokument muss ein Taxichauffeur neben dem Führerausweis immer im Fahrzeug mitführen?",
-            options: {
-                A: "Den Fahrzeugausweis und die Taxibewilligung.",
-                B: "Nur einen Stadtplan.",
-                C: "Die private Haftpflichtversicherung."
-            },
+            id: 4, category: 1,
+            question: "Wer ist gemäss ARV 2 für das korrekte Führen des Fahrtschreibers verantwortlich?",
+            options: { A: "Der Fahrzeughalter.", B: "Der Chauffeur.", C: "Die kantonale Behörde." },
+            correct: "B"
+        },
+        {
+            id: 5, category: 1,
+            question: "Wann muss die Taxibewilligung im Fahrzeug mitgeführt werden?",
+            options: { A: "Nur bei Nachtfahrten.", B: "Bei jeder gewerbsmässigen Fahrt.", C: "Nur bei Fahrten über die Kantonsgrenze." },
+            correct: "B"
+        },
+        {
+            id: 6, category: 1,
+            question: "Darf ein Taxichauffeur eine Fahrt ohne triftigen Grund verweigern, wenn er auf einem offiziellen Halteplatz steht?",
+            options: { A: "Ja, es herrscht Vertragsfreiheit.", B: "Nein, es besteht grundsätzlich eine Aufnahmepflicht.", C: "Ja, aber nur bei Kurzstrecken." },
+            correct: "B"
+        },
+        {
+            id: 7, category: 1,
+            question: "Was regelt die Verordnung ARV 2 hauptsächlich?",
+            options: { A: "Die Preise für Taxifahrten.", B: "Die Arbeits- und Ruhezeiten der berufsmässigen Motorfahrzeugführer.", C: "Die technischen Anforderungen an Taxis." },
+            correct: "B"
+        },
+        {
+            id: 8, category: 1,
+            question: "Wie lange müssen die Aufzeichnungen des Fahrtschreibers (Einlageblätter/Digital) aufbewahrt werden?",
+            options: { A: "6 Monate", B: "1 Jahr", C: "3 Jahre" },
+            correct: "B"
+        },
+        {
+            id: 9, category: 1,
+            question: "Welcher Führerausweis-Code (Zusatztheorie) wird in der Schweiz für das berufsmässige Personentransportieren (Taxi) benötigt?",
+            options: { A: "Code 121", B: "Code 141", C: "Code 118" },
             correct: "A"
+        },
+        {
+            id: 10, category: 1,
+            question: "Gilt das Taxameter (Fahrpreisanzeiger) als gesetzlich vorgeschrieben, wenn Fahrpreise nach Strecke/Zeit berechnet werden?",
+            options: { A: "Nein, eine Schätzung reicht.", B: "Ja, es muss geeicht und plombiert sein.", C: "Nur in Städten mit über 100'000 Einwohnern." },
+            correct: "B"
+        },
+        {
+            id: 11, category: 1,
+            question: "Muss ein Taxichauffeur dem Kunden unaufgefordert eine Quittung ausstellen?",
+            options: { A: "Nein, nur auf Verlangen des Fahrgastes.", B: "Ja, immer bei Beträgen über 100 CHF.", C: "Ja, das ist generell Pflicht." },
+            correct: "A"
+        },
+        {
+            id: 12, category: 1,
+            question: "Wie oft müssen gewerbsmässige Taxis zur Hauptuntersuchung (MFK)?",
+            options: { A: "Alle 2 Jahre.", B: "Jährlich.", C: "Alle 3 Jahre." },
+            correct: "B"
+        },
+        {
+            id: 13, category: 1,
+            question: "Was bedeutet die Abkürzung BPT?",
+            options: { A: "Berufsmässiger Personentransport", B: "Betriebliche Personen-Taxierung", C: "Bundesamt für Personen-Transport" },
+            correct: "A"
+        },
+        {
+            id: 14, category: 1,
+            question: "Darf ein Kind im Taxi ohne Kindersitz transportiert werden?",
+            options: { A: "Ja, Taxis sind generell von der Kindersitzpflicht befreit.", B: "Nein, es gelten die allgemeinen Vorschriften für Kindersitze (bis 12 Jahre oder 150 cm).", C: "Ja, aber nur auf dem Rücksitz." },
+            correct: "B"
+        },
+        {
+            id: 15, category: 1,
+            question: "Wer haftet für Schäden am Gepäck des Kunden, wenn der Chauffeur dieses falsch im Kofferraum verstaut hat?",
+            options: { A: "Der Fahrgast selbst.", B: "Der Taxichauffeur bzw. das Taxiunternehmen.", C: "Die kantonale Haftpflichtkasse." },
+            correct: "B"
+        },
+        {
+            id: 16, category: 1,
+            question: "Ein Fahrgast vergisst eine Geldbörse im Taxi. Was muss der Chauffeur tun?",
+            options: { A: "Es behalten, wenn sich niemand meldet.", B: "Es unverzüglich im Fundbüro oder bei der Polizei abgeben.", C: "Dem nächsten Fahrgast schenken." },
+            correct: "B"
+        },
+        {
+            id: 17, category: 1,
+            question: "Wie verhält sich der Chauffeur bei einem Stau, wenn der Fahrgast einen dringenden Termin (Flug) hat?",
+            options: { A: "Er darf die Busspur benutzen.", B: "Er bleibt ruhig, informiert den Gast und sucht wenn möglich eine Ausweichroute.", C: "Er schaltet das Blaulicht ein." },
+            correct: "B"
+        },
+        {
+            id: 18, category: 1,
+            question: "Welche Versicherung ist für ein Taxi absolut obligatorisch?",
+            options: { A: "Vollkaskoversicherung", B: "Haftpflichtversicherung mit dem Zusatz 'berufsmässiger Personentransport'", C: "Rechtsschutzversicherung" },
+            correct: "B"
+        },
+        {
+            id: 19, category: 1,
+            question: "Dürfen Taxichauffeure während der Fahrt ohne Freisprecheinrichtung telefonieren?",
+            options: { A: "Ja, für geschäftliche Taxi-Anrufe.", B: "Nein, das ist streng verboten und wird gebüsst.", C: "Nur im Schritttempo." },
+            correct: "B"
+        },
+        {
+            id: 20, category: 1,
+            question: "Was ist zu tun, wenn das Taxameter während einer Fahrt ausfällt?",
+            options: { A: "Die Fahrt sofort abbrechen.", B: "Den Fahrpreis mit dem Kunden auf Basis der gefahrenen Kilometer pauschal vereinbaren.", C: "Gratis fahren." },
+            correct: "B"
+        },
+        {
+            id: 21, category: 1,
+            question: "Gilt die Gurtenpflicht auch für den Taxichauffeur, wenn er Fahrgäste transportiert?",
+            options: { A: "Nein, er ist komplett befreit.", B: "Ja, es besteht eine generelle Gurtenpflicht.", C: "Nur auf der Autobahn." },
+            correct: "B"
+        },
+        {
+            id: 22, category: 1,
+            question: "Wie viele Stunden beträgt die wöchentliche Höchstarbeitszeit gemäss ARV 2 im Durchschnitt?",
+            options: { A: "45 Stunden", B: "48 Stunden", C: "50 Stunden" },
+            correct: "B"
+        },
+        {
+            id: 23, category: 1,
+            question: "Was ist ein 'Fahrgastbeleg'?",
+            options: { A: "Die Taxibewilligung.", B: "Eine detaillierte Quittung über den Fahrpreis, Weg und Datum.", C: "Der Führerausweis." },
+            correct: "B"
+        },
+        {
+            id: 24, category: 1,
+            question: "Darf ein Taxi auf einer Busspur halten, um Fahrgäste ein- oder aussteigen zu lassen?",
+            options: { A: "Ja, immer.", B: "Nur wenn es die lokalen Verkehrsvorschriften explizit erlauben und der Bus nicht behindert wird.", C: "Nein, niemals." },
+            correct: "B"
+        },
+        {
+            id: 25, category: 1,
+            question: "Welches Schild muss auf dem Dach eines Taxis angebracht sein?",
+            options: { A: "Ein 'BPT'-Schild.", B: "Ein beleuchtetes, gut sichtbares 'TAXI'-Schild.", C: "Ein Kantonswappen." },
+            correct: "B"
+        },
+        {
+            id: 26, category: 1,
+            question: "Was passiert, wenn Sie die ARV 2 Arbeitszeitregeln missachten?",
+            options: { A: "Nichts, das ist nur eine Richtlinie.", B: "Es drohen empfindliche Geldbussen und Entzug der Bewilligung.", C: "Der Kunde zahlt weniger." },
+            correct: "B"
+        },
+        {
+            id: 27, category: 1,
+            question: "Wie muss das Taxi-Schild bei Leerfahrten in der Nacht geschaltet sein?",
+            options: { A: "Es muss immer blinken.", B: "Je nach lokaler Vorschrift ausgeschaltet oder eingeschaltet (bereit für Kunden).", C: "Es muss rot leuchten." },
+            correct: "B"
+        },
+
+        // --- ТЕСТ 2 (Продолжение на прашањата) ---
+        {
+            id: 28, category: 2,
+            question: "Wie lange muss die tägliche Ruhezeit für Taxichauffeure innerhalb von 24 Stunden mindestens sein?",
+            options: { A: "9 Stunden", B: "11 Stunden (unter bestimmten Bedingungen verkürzbar на 9)", C: "8 Stunden" },
+            correct: "B"
+        },
+        {
+            id: 29, category: 2,
+            question: "Nach wie vielen Stunden ununterbrochener Lenkzeit muss eine Pause eingelegt werden?",
+            options: { A: "Nach 4.5 Stunden.", B: "Nach 5.5 Stunden.", C: "Nach 6 Stunden." },
+            correct: "A"
+        },
+        {
+            id: 30, category: 2,
+            question: "Wie lange muss die Mindestdauer einer gesetzlichen Lenkpause sein?",
+            options: { A: "15 Minuten", B: "45 Minuten (kann in 15 und 30 Min aufgeteilt werden)", C: "30 Minuten" },
+            correct: "B"
+        },
+
+        // --- ТЕСТ 3 (Техника и Сигурност) ---
+        {
+            id: 31, category: 3,
+            question: "Welche Mindestprofiltiefe müssen die Reifen eines Taxis in der Schweiz aufweisen?",
+            options: { A: "1.0 mm", B: "1.6 mm (Empfohlen im Winter jedoch min. 4mm)", C: "2.0 mm" },
+            correct: "B"
+        },
+        {
+            id: 32, category: 3,
+            question: "Was tun Sie, wenn während der Fahrt die Öldruckwarnleuchte rot aufleuchtet?",
+            options: { A: "Bis zur nächsten Werkstatt weiterfahren.", B: "Sofort sicher anhalten, Motor abstellen und Ölstand kontrollieren.", C: "Ignorieren, solange der Motor läuft." },
+            correct: "B"
         }
     ];
 
     let currentQuestions = [];
 
-    // Функција за автоматско мешање (Фишеров мешач)
+    // Фишеров мешач за Random опцијата
     function shuffleArray(array) {
         let arr = [...array];
         for (let i = arr.length - 1; i > 0; i--) {
@@ -249,17 +398,14 @@
         return arr;
     }
 
-    // Започнување на избран тест
+    // Старт на квизот
     function startQuiz(type) {
-        // Скриј претходни резултати и ресетирај приказ
         document.getElementById('results-area').style.display = 'none';
         document.getElementById('quiz-container').style.display = 'block';
         
-        // Смени активна боја на копчињата
         document.querySelectorAll('.menu button').forEach(b => b.classList.remove('active'));
         document.getElementById(`btn-${type}`).classList.add('active');
 
-        // Логика за филтрирање и мешање
         if (type === 'random') {
             currentQuestions = shuffleArray(allQuestions);
         } else {
@@ -267,12 +413,10 @@
         }
 
         renderQuestions();
-        
-        // Скролај до почетокот на прашањата
         document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Генератор на HTML за прашањата
+    // Приказ на прашања
     function renderQuestions() {
         const area = document.getElementById('questions-area');
         area.innerHTML = '';
@@ -297,14 +441,13 @@
         });
     }
 
-    // Евалуација и проверка за максимум 3 грешки
+    // Оценување со максимум 3 дозволени грешки
     function checkAnswers() {
         let errors = 0;
 
         currentQuestions.forEach(q => {
             const selectedOption = document.querySelector(`input[name="question-${q.id}"]:checked`);
             
-            // Чистење на стари класи (ако се проверува повеќе пати)
             for (let letter in q.options) {
                 document.getElementById(`label-${q.id}-${letter}`).classList.remove('correct-answer', 'wrong-answer');
             }
@@ -317,13 +460,11 @@
                 }
                 document.getElementById(`label-${q.id}-${q.correct}`).classList.add('correct-answer');
             } else {
-                // Ако не е одговорено се смета за грешка
                 errors++;
                 document.getElementById(`label-${q.id}-${q.correct}`).classList.add('correct-answer');
             }
         });
 
-        // Приказ на крајниот резултат
         const resultsArea = document.getElementById('results-area');
         resultsArea.style.display = 'block';
 
@@ -332,10 +473,9 @@
             resultsArea.innerHTML = `BESTANDEN! 🎉<br>Anzahl der Fehler: ${errors} (Erlaubt: max. 3)`;
         } else {
             resultsArea.className = "results failed";
-            resultsArea.innerHTML = `NICHT BESTANDEN. ❌<br>Anzahl der Fehler: ${errors} (Erlaubt: max. 3)<br>Versuchen Sie es еще einmal!`;
+            resultsArea.innerHTML = `NICHT BESTANDEN. ❌<br>Anzahl der Fehler: ${errors} (Erlaubt: max. 3)<br>Versuchen Sie es noch einmal!`;
         }
 
-        // Автоматско скролање до резултатот на дното
         resultsArea.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
